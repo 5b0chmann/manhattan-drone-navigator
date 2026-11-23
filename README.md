@@ -142,3 +142,37 @@ Additional data sources:
 New constraint:
 
 ```text
+
+## Current Status
+
+🚧 Early Development
+
+### Completed
+
+- ✅ Manhattan Grid World Environment
+- ✅ Manhattan Distance Reward Function
+- ✅ ASCII Environment Rendering
+- ✅ Random Navigation Agent
+- ✅ Initial Project Structure
+
+### Next Milestone
+
+- ⬜ Q-Learning Agent
+- ⬜ Q-Table Implementation
+- ⬜ Agent Training Loop
+- ⬜ Episode Statistics
+
+### 🚧 Phase 2 – Manhattan Grid World
+
+Completed:
+
+- ✅ 2D Grid Environment
+- ✅ Manhattan Distance Reward
+- ✅ ASCII Rendering
+- ✅ Random Agent
+
+Planned:
+
+- ⬜ Q-Learning Agent
+- ⬜ Training Episodes
+- ⬜ Evaluation Metrics
