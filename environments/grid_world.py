@@ -1,7 +1,7 @@
 
 class ManhattanGridWorld:
     """
-    Simple Manhattan Grid Enviroment.
+    Simple Manhattan Grid Environment.
     
     Start: (0, 0)
     Goal: (width - 1, height - 1)
@@ -19,7 +19,7 @@ class ManhattanGridWorld:
         self.height = height
 
         self.start = (0, 0)
-        self.goal = (9, 9)
+        self.goal = (width - 1, height - 1)
 
         self.agent_position = self.start
 
@@ -39,7 +39,7 @@ class ManhattanGridWorld:
         x, y = position
         gx, gy = self.goal
         
-        return abs(x - gx) + abs(y + gy)
+        return abs(x - gx) + abs(y - gy)
 
     def step(self, action):
         """
@@ -79,7 +79,7 @@ class ManhattanGridWorld:
 
     def render(self):
         """
-        Render the enviroment as ASCII text.
+        Render the environment as ASCII text.
         """
 
         print()
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
     for action in actions:
 
-        state, reward, done = env.stet(action)
+        state, reward, done = env.step(action)
 
         print(
             f"Action={action:>5} | "
@@ -134,7 +134,7 @@ if __name__ == "__main__":
         )
 
         env.render()
-        
+
         if done:
             print("Goal reached!")
             break
