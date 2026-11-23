@@ -1,6 +1,6 @@
 # 🚁 Manhattan Drone Navigator
 
-A Reinforcement Learning project that teaches an autonomous drone to navigate through Manhattan using OpenStreetMap, graph theory and Deep Reinforcement Learning.
+A Reinforcement Learning project that teaches an autonomous drone to navigate through Manhattan using OpenStreetMap, graph theory, and Deep Reinforcement Learning.
 
 ---
 
@@ -34,7 +34,7 @@ d = |x₁ - x₂| + |y₁ - y₂|
 
 Since Manhattan is organized in a nearly grid-like structure, it provides a natural environment for reinforcement learning experiments.
 
-The project evolves from a simple Grid World to a realistic 3D urban airspace simulation.
+The project evolves from a simple Grid World into a realistic 3D urban airspace simulation.
 
 ---
 
@@ -49,13 +49,28 @@ Topics:
 - Q-Learning
 - Deep Q-Networks (DQN)
 - PPO
-- Exploration vs Exploitation
+- Exploration vs. Exploitation
 
 ---
 
-### ⬜ Phase 2 – Manhattan Grid World
+### ✅ Phase 2 – Manhattan Grid World
 
-First RL environment:
+Completed:
+
+- ✅ 2D Grid Environment
+- ✅ Manhattan Distance Reward Function
+- ✅ ASCII Rendering
+- ✅ Random Navigation Agent
+- ✅ Q-Learning Agent
+- ✅ Q-Table Implementation
+- ✅ Training Loop
+- ✅ Learned Navigation Policy
+
+State Representation:
+
+```python
+(x, y)
+```
 
 Actions:
 
@@ -66,23 +81,56 @@ EAST
 WEST
 ```
 
-State:
-
-```python
-(x, y)
-```
-
-Reward:
+Reward Function:
 
 ```python
 reward = old_distance - new_distance
 ```
 
-using Manhattan distance.
+Goal Reward:
+
+```python
+reward += 100
+```
+
+Example Training Result:
+
+```text
+Episode 900 | Total Reward: 118
+```
+
+The agent successfully learns the optimal Manhattan path.
 
 ---
 
-### ⬜ Phase 3 – Real Manhattan Street Network
+### 🚧 Phase 3 – Obstacle Navigation
+
+Goal:
+
+Teach the drone to avoid obstacles while still reaching the target.
+
+Example:
+
+```text
+. . . . . . . . . G
+. . X X X X . . . .
+. . X X X X . . . .
+. . X X X X . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+D . . . . . . . . .
+```
+
+Planned Features:
+
+- Static Obstacles
+- Collision Penalties
+- Alternative Route Planning
+- Obstacle-Aware Q-Learning
+
+---
+
+### ⬜ Phase 4 – Real Manhattan Street Network
 
 Transition from:
 
@@ -90,10 +138,10 @@ Transition from:
 Grid World
 ```
 
-to
+to:
 
 ```text
-Real Street Network
+Real Manhattan Street Network
 ```
 
 Technologies:
@@ -102,7 +150,7 @@ Technologies:
 - OSMnx
 - NetworkX
 
-Research question:
+Research Question:
 
 ```text
 A*
@@ -112,67 +160,110 @@ RL Agent
 
 ---
 
-### ⬜ Phase 4 – Building Obstacles
+### ⬜ Phase 5 – Building Obstacles
 
-Buildings are introduced as no-fly zones.
+Buildings become no-fly zones.
 
-Example:
-
-```text
-########
-#      #
-# BLDG #
-#      #
-########
-```
-
-The drone must find alternative routes.
-
----
-
-### ⬜ Phase 5 – Building Heights
-
-Additional data sources:
+Data Sources:
 
 - OpenStreetMap
 - NYC Open Data
 - GIS Datasets
 - Kaggle
 
-New constraint:
+---
+
+### ⬜ Phase 6 – Building Heights
+
+Additional State Information:
+
+```python
+(x, y, z)
+```
+
+Potential Data Sources:
+
+- height
+- building:levels
+- LiDAR Data
+- GIS Building Datasets
+
+---
+
+### ⬜ Phase 7 – 3D Manhattan Drone Navigator
+
+Actions:
 
 ```text
+NORTH
+SOUTH
+EAST
+WEST
+UP
+DOWN
+```
+
+Additional Factors:
+
+- Building Heights
+- Wind Conditions
+- Energy Consumption
+- Dynamic Obstacles
+- Air Traffic Constraints
+
+---
 
 ## Current Status
 
-🚧 Early Development
+✅ Manhattan Grid World implemented
 
-### Completed
+✅ Random Agent implemented
 
-- ✅ Manhattan Grid World Environment
-- ✅ Manhattan Distance Reward Function
-- ✅ ASCII Environment Rendering
-- ✅ Random Navigation Agent
-- ✅ Initial Project Structure
+✅ Q-Learning Agent implemented
 
-### Next Milestone
+✅ Training successful
 
-- ⬜ Q-Learning Agent
-- ⬜ Q-Table Implementation
-- ⬜ Agent Training Loop
-- ⬜ Episode Statistics
+🚧 Working on obstacle-aware navigation
 
-### 🚧 Phase 2 – Manhattan Grid World
+---
 
-Completed:
+## Repository Structure
 
-- ✅ 2D Grid Environment
-- ✅ Manhattan Distance Reward
-- ✅ ASCII Rendering
-- ✅ Random Agent
+```text
+manhattan-drone-navigator/
+│
+├── agents/
+│   ├── random_agent.py
+│   └── q_learning_agent.py
+│
+├── environments/
+│   └── grid_world.py
+│
+├── experiments/
+├── maps/
+├── notebooks/
+├── docs/
+│
+├── README.md
+├── requirements.txt
+└── LICENSE
+```
 
-Planned:
+---
 
-- ⬜ Q-Learning Agent
-- ⬜ Training Episodes
-- ⬜ Evaluation Metrics
+## Technologies
+
+- Python
+- Reinforcement Learning
+- Q-Learning
+- OpenStreetMap
+- NetworkX
+- OSMnx
+- NumPy
+- Matplotlib
+
+---
+
+## License
+
+MIT License
