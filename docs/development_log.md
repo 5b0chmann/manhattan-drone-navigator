@@ -273,29 +273,84 @@ manhattan-drone-navigator/
 
 ---
 
-# Upcoming Development
+# v0.3.0 - Obstacle Navigation
 
-## v0.3.0 - Obstacle Navigation
+Release Date: November 2026
 
-Goals:
+## Objectives
 
-- Static obstacles
-- Collision penalties
-- Route planning around obstacles
+Introduce obstacles that force the agent to plan alternative routes instead of following a direct Manhattan path.
+
+## Completed Features
+
+### Static Obstacles
+
+Added obstacle cells to the environment.
 
 Example:
 
 ```text
 . . . . . . . . . G
-. . X X X X . . . .
-. . X X X X . . . .
-. . X X X X . . . .
 . . . . . . . . . .
-. . . . . . . . . .
+. . . X X X . . . .
+. . . X . . . . . .
+. . . X . . . . . .
 D . . . . . . . . .
 ```
 
 ---
+
+### Collision Detection
+
+The environment detects when the agent attempts to move into an obstacle.
+
+---
+
+### Collision Penalty
+
+Obstacle collisions result in:
+
+```python
+reward = -10
+```
+
+The agent remains in the current position.
+
+---
+
+### Obstacle-aware Q-Learning
+
+The Q-Learning agent successfully learns to avoid obstacles and still reach the goal.
+
+---
+
+### Training Results
+
+Example output:
+
+```text
+Episode 0   | Total Reward: 108
+Episode 100 | Total Reward: 118
+Episode 900 | Total Reward: 118
+```
+
+Result:
+
+✅ Agent learns obstacle avoidance behavior.
+
+✅ Agent still converges to an optimal solution.
+
+---
+
+## Lessons Learned
+
+- Environmental constraints significantly change the learned policy.
+- Q-Learning can adapt to obstacles without changing the underlying algorithm.
+- Reward penalties effectively discourage collisions.
+
+---
+
+# Upcoming Development
 
 ## v0.4.0 - Real Manhattan Street Network
 

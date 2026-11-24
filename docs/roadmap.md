@@ -40,7 +40,7 @@ Manhattan Drone Navigator
 Current Version:
 
 ```text
-v0.2.0
+v0.3.0
 ```
 
 ---
@@ -63,7 +63,7 @@ Example:
 D . . . . . . . . .
 ```
 
-## Planned Features
+## Completed Features
 
 - Static obstacles
 - Collision detection
