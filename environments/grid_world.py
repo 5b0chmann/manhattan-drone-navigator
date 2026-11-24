@@ -23,6 +23,14 @@ class ManhattanGridWorld:
 
         self.agent_position = self.start
 
+        self.obstacles = {
+            (3, 3),
+            (3, 4),
+            (3, 5),
+            (4, 5),
+            (5, 5)
+        }
+
     def reset(self):
         """
         Reset the agent to the starting position.
@@ -62,9 +70,25 @@ class ManhattanGridWorld:
         elif action == "WEST":
             x = max(x - 1, 0)
 
+        # Candidate position
+        new_position = (x, y)
+
+        # Obstacle collision
+        if new_position in self.obstacles:
+
+            reward = -10
+
+            done = False
+
+            return(
+                self.agent_position,
+                reward,
+                False
+            )
+
         old_distance = self.manhattan_distance(self.agent_position)
 
-        self.agent_position = (x, y)
+        self.agent_position = new_position
 
         new_distance = self.manhattan_distance(self.agent_position)
 
@@ -76,6 +100,7 @@ class ManhattanGridWorld:
             reward += 100
 
         return self.agent_position, reward, done
+    
 
     def render(self):
         """
@@ -98,6 +123,9 @@ class ManhattanGridWorld:
                 elif position == self.goal:
                     row.append("G")
 
+                elif position in self.obstacles:
+                    row.append("X")
+
                 else:
                     row.append(".")
 
@@ -118,9 +146,11 @@ if __name__ == "__main__":
     actions = [
         "EAST",
         "EAST",
+        "EAST",
         "NORTH",
         "NORTH",
-        "EAST"
+        "NORTH",
+        "NORTH"
     ]
 
     for action in actions:
