@@ -32,7 +32,7 @@ The idea originated from the Manhattan distance metric:
 d = |x₁ - x₂| + |y₁ - y₂|
 ```
 
-Since Manhattan is organized in a nearly grid-like structure, it provides a natural environment for reinforcement learning experiments.
+Since Manhattan is organized in a nearly grid-like structure, it provides a natural environment for Reinforcement Learning experiments.
 
 The project evolves from a simple Grid World into a realistic 3D urban airspace simulation.
 
@@ -103,13 +103,16 @@ The agent successfully learns the optimal Manhattan path.
 
 ---
 
-### 🚧 Phase 3 – Obstacle Navigation
+### ✅ Phase 3 – Obstacle Navigation
 
-Goal:
+Completed:
 
-Teach the drone to avoid obstacles while still reaching the target.
+- ✅ Static Obstacles
+- ✅ Collision Detection
+- ✅ Collision Penalties
+- ✅ Obstacle-aware Q-Learning
 
-Example:
+Example Environment:
 
 ```text
 . . . . . . . . . G
@@ -121,28 +124,38 @@ Example:
 D . . . . . . . . .
 ```
 
-Planned Features:
-
-- Static Obstacles
-- Collision Penalties
-- Alternative Route Planning
-- Obstacle-Aware Q-Learning
+The agent successfully learns alternative routes while avoiding collisions.
 
 ---
 
-### ⬜ Phase 4 – Real Manhattan Street Network
+### ✅ Phase 4 – Environment Analytics
 
-Transition from:
+Completed:
+
+- ✅ Success Rate Analysis
+- ✅ Reward Analytics
+- ✅ Step Analytics
+- ✅ Performance Evaluation
+
+Results:
 
 ```text
-Grid World
+Success Rate : 100.00%
+Average Reward : 117.72
+Average Steps : 20.42
+Best Reward : 118
+Best Steps : 18
 ```
 
-to:
+The analytics confirm that obstacle-aware navigation converges to a near-optimal policy.
 
-```text
-Real Manhattan Street Network
-```
+---
+
+### 🚧 Phase 5 – Real Manhattan Street Network
+
+Goal:
+
+Replace the artificial Grid World with a real-world street network.
 
 Technologies:
 
@@ -150,47 +163,62 @@ Technologies:
 - OSMnx
 - NetworkX
 
+Planned Features:
+
+- Download Manhattan street network
+- Graph-based navigation
+- Road intersections as states
+- Street segments as actions
+- Manhattan graph extraction
+- Route visualization
+- RL vs A* comparison
+
 Research Question:
 
 ```text
 A*
 vs
-RL Agent
+Q-Learning
+vs
+Deep Reinforcement Learning
 ```
+
+Evaluation Metrics:
+
+- Success Rate
+- Route Length
+- Computation Time
+- Energy Consumption (future)
 
 ---
 
-### ⬜ Phase 5 – Building Obstacles
+### ⬜ Phase 6 – Building Data Integration
 
-Buildings become no-fly zones.
+Goal:
+
+Introduce realistic urban constraints.
 
 Data Sources:
 
 - OpenStreetMap
 - NYC Open Data
-- GIS Datasets
+- GIS datasets
 - Kaggle
+
+Planned Features:
+
+- Building footprints
+- No-fly zones
 
 ---
 
-### ⬜ Phase 6 – Building Heights
+### ⬜ Phase 7 – 3D Drone Navigation
 
-Additional State Information:
+State Space:
 
 ```python
 (x, y, z)
 ```
-
-Potential Data Sources:
-
-- height
-- building:levels
-- LiDAR Data
-- GIS Building Datasets
-
----
-
-### ⬜ Phase 7 – 3D Manhattan Drone Navigator
 
 Actions:
 
@@ -203,13 +231,52 @@ UP
 DOWN
 ```
 
-Additional Factors:
+Planned Features:
 
-- Building Heights
-- Wind Conditions
-- Energy Consumption
-- Dynamic Obstacles
-- Air Traffic Constraints
+- Building heights
+- Altitude control
+- Building avoidance
+- Energy-aware routing
+- Wind simulation
+
+---
+
+### ⬜ Phase 8 – Deep Reinforcement Learning
+
+Goal:
+
+Scale the navigation environment beyond the limits of tabular Q-Learning.
+
+Candidates:
+
+- DQN
+- Double DQN
+- PPO
+- A2C
+
+Planned Features:
+
+- Neural value approximation
+- Large state spaces
+- Real-world scalability
+
+---
+
+### ⬜ Phase 9 – Manhattan Drone Navigator
+
+Final Goal:
+
+Create a realistic urban drone navigation simulator.
+
+Features:
+
+- Real Manhattan street network
+- Building heights
+- 3D navigation
+- Deep Reinforcement Learning
+- Obstacle avoidance
+- Energy optimization
+- Urban air mobility simulation
 
 ---
 
@@ -217,13 +284,26 @@ Additional Factors:
 
 ✅ Manhattan Grid World implemented
 
-✅ Random Agent implemented
-
 ✅ Q-Learning Agent implemented
 
-✅ Training successful
+✅ Obstacle Navigation implemented
 
-🚧 Working on obstacle-aware navigation
+✅ Collision Detection implemented
+
+✅ Environment Analytics implemented
+
+✅ Performance Evaluation completed
+
+Current Metrics:
+
+```text
+Success Rate : 100.00%
+Average Reward : 117.72
+Average Steps : 20.42
+Best Reward : 118
+```
+
+🚧 Preparing integration of the real Manhattan street network
 
 ---
 
@@ -240,13 +320,20 @@ manhattan-drone-navigator/
 │   └── grid_world.py
 │
 ├── experiments/
+│   └── analytics.py
+│
+├── docs/
+│   ├── architecture.md
+│   ├── development_log.md
+│   └── roadmap.md
+│
 ├── maps/
 ├── notebooks/
-├── docs/
 │
 ├── README.md
 ├── requirements.txt
-└── LICENSE
+├── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -257,10 +344,20 @@ manhattan-drone-navigator/
 - Reinforcement Learning
 - Q-Learning
 - OpenStreetMap
-- NetworkX
 - OSMnx
+- NetworkX
 - NumPy
 - Matplotlib
+
+---
+
+## Documentation
+
+Additional project documentation is available in:
+
+- `docs/development_log.md`
+- `docs/roadmap.md`
+- `docs/architecture.md`
 
 ---
 

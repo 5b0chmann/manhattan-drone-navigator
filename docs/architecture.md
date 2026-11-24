@@ -1,6 +1,6 @@
 # System Architecture
 
-## Evolution of the Project
+## Project Evolution
 
 ```text
 Manhattan Distance
@@ -37,8 +37,8 @@ Manhattan Drone Navigator
           |
           v
 +---------------------+
-| Reward Function     |
 | Manhattan Distance  |
+| Reward Function     |
 +---------------------+
           |
           v
@@ -54,20 +54,41 @@ Manhattan Drone Navigator
           |
           v
 +---------------------+
+| Analytics Module    |
++---------------------+
+          |
+          v
++---------------------+
 | Learned Policy      |
 +---------------------+
 ```
 
 ---
 
-## Future Architecture
+## Current Performance
+
+```text
+Success Rate : 100.00%
+Average Reward : 117.72
+Average Steps : 20.42
+Best Reward : 118
+Worst Reward : 78
+Best Steps : 18
+Worst Steps : 74
+```
+
+---
+
+## Next Architecture
 
 ```text
 OpenStreetMap
       ↓
 OSMnx
       ↓
-NetworkX Graph
+NetworkX
+      ↓
+Manhattan Road Graph
       ↓
 RL Environment
       ↓

@@ -350,26 +350,123 @@ Result:
 
 ---
 
-# Upcoming Development
+# v0.4.0 - Environment Analytics
 
-## v0.4.0 - Real Manhattan Street Network
+Release Date: November 2026
 
-Goals:
+## Objectives
 
-- OpenStreetMap integration
-- OSMnx integration
-- NetworkX graph representation
-- Path planning on real road networks
+Measure and evaluate the performance of the learning agent using quantitative metrics.
 
-Research Question:
+## Completed Features
+
+### Training Analytics
+
+Implemented an analytics module for evaluating agent performance.
+
+Collected metrics:
+
+- Success Rate
+- Average Reward
+- Average Steps
+- Best Reward
+- Worst Reward
+- Best Steps
+- Worst Steps
+
+---
+
+### Success Rate
+
+Measured how often the agent successfully reaches the goal state.
+
+Result:
 
 ```text
-A*
-vs
-Q-Learning
-vs
-Deep Reinforcement Learning
+Success Rate: 100.00%
 ```
+
+The Q-Learning agent reaches the goal in every training episode.
+
+---
+
+### Reward Analysis
+
+Measured overall training performance.
+
+Results:
+
+```text
+Average Reward : 117.72
+Best Reward    : 118
+Worst Reward   : 78
+```
+
+The theoretical optimum remains:
+
+```text
+18 movement rewards
++100 goal reward
+------------------
+118 total reward
+```
+
+Result:
+
+✅ Average performance is extremely close to the theoretical optimum.
+
+---
+
+### Step Analysis
+
+Measured navigation efficiency.
+
+Results:
+
+```text
+Average Steps : 20.42
+Best Steps    : 18
+Worst Steps   : 74
+```
+
+The shortest possible route requires:
+
+```text
+18 steps
+```
+
+Result:
+
+✅ The learned navigation policy is highly efficient.
+
+---
+
+### Obstacle Environment Evaluation
+
+The analytics confirm that obstacle-aware navigation does not prevent convergence.
+
+Results:
+
+```text
+Success Rate  : 100.00%
+Average Reward: 117.72
+```
+
+The agent reliably avoids obstacles and still reaches the target.
+
+---
+
+## Lessons Learned
+
+- Success Rate alone is not sufficient for evaluating a learning agent.
+- Average Reward provides valuable insight into policy quality.
+- Average Steps reveal route efficiency.
+- Obstacle penalties successfully shape agent behavior.
+- Quantitative evaluation is essential before scaling to real-world environments.
+
+---
+
+# Upcoming Development
 
 ---
 

@@ -36,75 +36,56 @@ Manhattan Drone Navigator
 - ✅ Q-Table Implementation
 - ✅ Training Loop
 - ✅ Learned Navigation Policy
+- ✅ Obstacle Navigation
+- ✅ Collision Detection
+- ✅ Collision Penalty System
+- ✅ Environment Analytics
+
 
 Current Version:
 
 ```text
-v0.3.0
-```
-
----
-
-# Phase 3 – Obstacle Navigation
-
-## Goal
-
-Teach the agent to avoid obstacles while still reaching the destination.
-
-Example:
-
-```text
-. . . . . . . . . G
-. . X X X X . . . .
-. . X X X X . . . .
-. . X X X X . . . .
-. . . . . . . . . .
-. . . . . . . . . .
-D . . . . . . . . .
-```
-
-## Completed Features
-
-- Static obstacles
-- Collision detection
-- Collision penalties
-- Alternative route planning
-- Obstacle-aware Q-Learning
-
-Expected Release:
-
-```text
-v0.3.0
-```
-
----
-
-# Phase 4 – Environment Analytics
-
-## Goal
-
-Understand and visualize agent performance.
-
-## Planned Features
-
-- Episode statistics
-- Success rate
-- Average reward
-- Reward plots
-- Learning curves
-
-Example Metrics:
-
-```text
-Success Rate
-Average Reward
-Episodes to Convergence
-```
-
-Expected Release:
-
-```text
 v0.4.0
+```
+
+Current Performance:
+
+```text
+Success Rate : 100.00%
+Average Reward : 117.72
+Average Steps : 20.42
+Best Reward : 118
+```
+
+---
+
+### ✅ Phase 3 – Obstacle Navigation
+
+Completed:
+
+- ✅ Static Obstacles
+- ✅ Collision Detection
+- ✅ Collision Penalties
+- ✅ Obstacle-aware Q-Learning
+
+---
+
+### ✅ Phase 4 – Environment Analytics
+
+Completed:
+
+- ✅ Success Rate
+- ✅ Average Reward
+- ✅ Average Steps
+- ✅ Performance Evaluation
+
+Results:
+
+```text
+Success Rate : 100.00%
+Average Reward : 117.72
+Average Steps : 20.42
+Best Reward : 118
 ```
 
 ---
@@ -127,6 +108,9 @@ Replace the artificial Grid World with a real-world street network.
 - Graph-based navigation
 - Road intersections as states
 - Street segments as actions
+- Manhattan graph extraction
+- Route visualization
+- RL vs A* comparison
 
 Research Question:
 
@@ -136,6 +120,13 @@ vs
 Q-Learning
 vs
 Deep Reinforcement Learning
+
+Evaluation Metrics:
+
+- Success Rate
+- Route Length
+- Computation Time
+- Energy Consumption (future)
 ```
 
 Expected Release:
@@ -163,7 +154,6 @@ Introduce realistic urban constraints.
 
 - Building footprints
 - No-fly zones
-- Building heights
 
 Expected Release:
 
@@ -198,6 +188,7 @@ DOWN
 - Building avoidance
 - Energy-aware routing
 - Wind simulation
+- Building heights
 
 Expected Release:
 
@@ -211,7 +202,7 @@ v0.7.0
 
 ## Goal
 
-Move from tabular learning to neural-network-based agents.
+Scale the navigation environment beyond the limits of tabular Q-Learning.
 
 ## Candidates
 
