@@ -1,0 +1,21 @@
+# Core numerical libraries
+numpy
+
+# Data analysis
+pandas
+
+# Visualization
+matplotlib
+
+# Graph processing
+networkx
+
+# OpenStreetMap integration
+osmnx
+
+# Geospatial data
+geopandas
+
+# Machine Learning
+scikit-learn
+

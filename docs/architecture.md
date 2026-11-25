@@ -31,36 +31,21 @@ Manhattan Drone Navigator
 ## Current Architecture
 
 ```text
-+---------------------+
-| ManhattanGridWorld  |
-+---------------------+
-          |
-          v
-+---------------------+
-| Manhattan Distance  |
-| Reward Function     |
-+---------------------+
-          |
-          v
-+---------------------+
-| Obstacles           |
-| Collision Penalty   |
-+---------------------+
-          |
-          v
-+---------------------+
-| Q-Learning Agent    |
-+---------------------+
-          |
-          v
-+---------------------+
-| Analytics Module    |
-+---------------------+
-          |
-          v
-+---------------------+
-| Learned Policy      |
-+---------------------+
+OpenStreetMap
+        ↓
+OSMnx
+        ↓
+NetworkX MultiDiGraph
+        ↓
+GraphML Persistence
+        ↓
+Node Inspection
+        ↓
+Neighbor Inspection
+        ↓
+Shortest Path
+        ↓
+Route Visualization
 ```
 
 ---

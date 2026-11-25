@@ -45,7 +45,7 @@ Manhattan Drone Navigator
 Current Version:
 
 ```text
-v0.4.0
+v0.5.0
 ```
 
 Current Performance:
@@ -102,15 +102,20 @@ Replace the artificial Grid World with a real-world street network.
 - OSMnx
 - NetworkX
 
-## Planned Features
+## Completed Features
 
-- Download Manhattan street network
-- Graph-based navigation
-- Road intersections as states
-- Street segments as actions
-- Manhattan graph extraction
-- Route visualization
-- RL vs A* comparison
+- ✅ Download Manhattan street network
+- ✅ Graph-based navigation
+- ✅ Manhattan graph extraction
+- ✅ Route visualization
+- ✅ Node inspection
+- ✅ Neighbor inspection
+
+## In Progress
+
+- ⬜ A* baseline
+- ⬜ RL environment on graph
+- ⬜ Agent evaluation
 
 Research Question:
 

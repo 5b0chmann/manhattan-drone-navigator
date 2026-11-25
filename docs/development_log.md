@@ -464,26 +464,105 @@ The agent reliably avoids obstacles and still reaches the target.
 - Obstacle penalties successfully shape agent behavior.
 - Quantitative evaluation is essential before scaling to real-world environments.
 
----
-
-# Upcoming Development
 
 ---
 
-## v0.5.0 - Building Data
+# v0.5.0 - Real Manhattan Street Network
 
-Goals:
+Release Date: November 2026
 
-- Building footprints
-- Building heights
-- No-fly zones
+## Objectives
 
-Potential Data Sources:
+Transition from an artificial Grid World to a real-world Manhattan street network.
 
-- OpenStreetMap
-- NYC Open Data
-- Kaggle
-- GIS datasets
+## Completed Features
+
+### Manhattan Graph Download
+
+Downloaded Manhattan street network from OpenStreetMap using OSMnx.
+
+Result:
+
+```text
+Nodes : 4630
+Edges : 9915
+```
+
+---
+
+### GraphML Persistence
+
+Saved the graph locally as:
+
+```text
+maps/manhattan.graphml
+```
+
+---
+
+### Node Inspection
+
+Example node:
+
+```text
+42421728
+```
+
+Attributes:
+
+```python
+{
+    'y': 40.7980478,
+    'x': -73.9600437,
+    'highway': 'traffic_signals',
+    'street_count': 3
+}
+```
+
+---
+
+### Neighbor Inspection
+
+Example:
+
+```text
+42435337
+42421731
+42432736
+```
+
+---
+
+### Route Planning
+
+Shortest path:
+
+```text
+Path Length: 134 Nodes
+Route Length: 10332.86 meters
+```
+
+---
+
+### Visualization
+
+Implemented:
+
+- Graph visualization
+- Route visualization
+
+Result:
+
+✅ Real Manhattan route displayed successfully.
+
+### Route Visualization
+
+Implemented shortest-path visualization on the real Manhattan road network.
+
+Result:
+
+✅ Route successfully rendered on top of the Manhattan street graph.
+
 
 ---
 

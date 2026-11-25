@@ -163,32 +163,23 @@ Technologies:
 - OSMnx
 - NetworkX
 
-Planned Features:
+Current Progress:
 
-- Download Manhattan street network
-- Graph-based navigation
-- Road intersections as states
-- Street segments as actions
-- Manhattan graph extraction
-- Route visualization
-- RL vs A* comparison
+- ✅ Manhattan graph download
+- ✅ GraphML persistence
+- ✅ Graph loading
+- ✅ Node inspection
+- ✅ Neighbor inspection
+- ✅ Shortest path calculation
+- ✅ Graph visualization
+- ✅ Route visualization
 
-Research Question:
+Current Graph Statistics:
 
 ```text
-A*
-vs
-Q-Learning
-vs
-Deep Reinforcement Learning
+Nodes : 4630
+Edges : 9915
 ```
-
-Evaluation Metrics:
-
-- Success Rate
-- Route Length
-- Computation Time
-- Energy Consumption (future)
 
 ---
 
