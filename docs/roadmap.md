@@ -6,14 +6,14 @@ This document outlines the planned evolution of the Manhattan Drone Navigator pr
 
 # Vision
 
-Build an autonomous drone navigation system that learns how to fly through Manhattan using Reinforcement Learning and real-world geographic data.
+Build an autonomous drone navigation system that learns how to navigate through Manhattan using Reinforcement Learning and real-world geographic data.
 
 ```text
 OpenStreetMap
         +
 Street Network
         +
-Buildings
+Building Data
         +
 Building Heights
         +
@@ -26,57 +26,106 @@ Manhattan Drone Navigator
 
 # Current Status
 
-## Completed
-
-- ✅ Manhattan Grid World
-- ✅ Manhattan Distance Reward
-- ✅ ASCII Environment Rendering
-- ✅ Random Agent
-- ✅ Q-Learning Agent
-- ✅ Q-Table Implementation
-- ✅ Training Loop
-- ✅ Learned Navigation Policy
-- ✅ Obstacle Navigation
-- ✅ Collision Detection
-- ✅ Collision Penalty System
-- ✅ Environment Analytics
-
-
 Current Version:
 
 ```text
-v0.5.0
-```
-
-Current Performance:
-
-```text
-Success Rate : 100.00%
-Average Reward : 117.72
-Average Steps : 20.42
-Best Reward : 118
+v0.5.1
 ```
 
 ---
 
-### ✅ Phase 3 – Obstacle Navigation
+# ✅ Phase 1 – Reinforcement Learning Fundamentals
 
-Completed:
+Completed Topics:
+
+- ✅ Markov Decision Process (MDP)
+- ✅ Reward Functions
+- ✅ Q-Learning
+- ✅ Deep Q-Networks (DQN)
+- ✅ PPO Fundamentals
+- ✅ Exploration vs Exploitation
+
+Status:
+
+```text
+Completed
+```
+
+---
+
+# ✅ Phase 2 – Manhattan Grid World
+
+Implemented:
+
+- ✅ Manhattan Grid Environment
+- ✅ Manhattan Distance Reward
+- ✅ ASCII Rendering
+- ✅ Random Agent
+- ✅ Q-Learning Agent
+- ✅ Q-Table
+- ✅ Training Loop
+- ✅ Learned Navigation Policy
+
+State Space:
+
+```python
+(x, y)
+```
+
+Actions:
+
+```text
+NORTH
+SOUTH
+EAST
+WEST
+```
+
+Training Result:
+
+```text
+Episode 900 | Total Reward: 118
+```
+
+Status:
+
+```text
+Completed
+```
+
+---
+
+# ✅ Phase 3 – Obstacle Navigation
+
+Implemented:
 
 - ✅ Static Obstacles
 - ✅ Collision Detection
 - ✅ Collision Penalties
 - ✅ Obstacle-aware Q-Learning
 
+Results:
+
+```text
+Agent learns alternative routes
+while avoiding collisions.
+```
+
+Status:
+
+```text
+Completed
+```
+
 ---
 
-### ✅ Phase 4 – Environment Analytics
+# ✅ Phase 4 – Environment Analytics
 
-Completed:
+Implemented:
 
-- ✅ Success Rate
-- ✅ Average Reward
-- ✅ Average Steps
+- ✅ Success Rate Analysis
+- ✅ Average Reward Analysis
+- ✅ Step Analysis
 - ✅ Performance Evaluation
 
 Results:
@@ -86,36 +135,202 @@ Success Rate : 100.00%
 Average Reward : 117.72
 Average Steps : 20.42
 Best Reward : 118
+Best Steps : 18
+```
+
+Status:
+
+```text
+Completed
 ```
 
 ---
 
-# Phase 5 – Real Manhattan Street Network
+# 🚧 Phase 5 – Graph Reinforcement Learning
 
 ## Goal
 
-Replace the artificial Grid World with a real-world street network.
+Replace the artificial Grid World with a real Manhattan street network based on OpenStreetMap.
 
-## Technologies
+Technologies:
 
 - OpenStreetMap
 - OSMnx
 - NetworkX
+- Graph Theory
+- Reinforcement Learning
 
-## Completed Features
+---
 
-- ✅ Download Manhattan street network
-- ✅ Graph-based navigation
-- ✅ Manhattan graph extraction
-- ✅ Route visualization
+## ✅ Phase 5.0 – Manhattan Street Graph
+
+Completed:
+
+- ✅ Manhattan graph download
+- ✅ OSMnx integration
+- ✅ GraphML persistence
+- ✅ Graph loading
 - ✅ Node inspection
 - ✅ Neighbor inspection
+- ✅ Shortest path calculation
+- ✅ Graph visualization
+- ✅ Route visualization
+- ✅ A* baseline
 
-## In Progress
+Graph Statistics:
 
-- ⬜ A* baseline
-- ⬜ RL environment on graph
-- ⬜ Agent evaluation
+```text
+Nodes : 4630
+Edges : 9915
+```
+
+A* Baseline:
+
+```text
+Path Length  : 134 Nodes
+Route Length : 10332.86 meters
+Goal Reached : True
+```
+
+Status:
+
+```text
+Completed
+```
+
+---
+
+## ✅ Phase 5A – Mini Manhattan
+
+Goal:
+
+Validate Reinforcement Learning on a small real-world graph.
+
+Environment:
+
+```text
+Mini Manhattan
+```
+
+Results:
+
+```text
+Nodes          : 9
+Shortest Route : 3 Nodes
+Success Rate   : 95.8%
+```
+
+Implemented:
+
+- ✅ MiniManhattanEnv
+- ✅ DroneNavigatorAgent
+- ✅ Graph-based actions
+- ✅ Graph-based state space
+- ✅ Q-Learning training pipeline
+
+Status:
+
+```text
+Completed
+```
+
+---
+
+## ✅ Phase 5B – Neighborhood Manhattan
+
+Goal:
+
+Scale Reinforcement Learning to a larger graph environment.
+
+Environment:
+
+```text
+Neighborhood Manhattan
+```
+
+Results:
+
+```text
+Nodes          : 24
+Shortest Route : 9 Nodes
+Success Rate   : 97.9%
+```
+
+Agent Statistics:
+
+```text
+Q-Table Entries : 52
+```
+
+Implemented:
+
+- ✅ NeighborhoodManhattanEnv
+- ✅ Neighborhood training pipeline
+- ✅ Success-rate tracking
+- ✅ Performance evaluation
+- ✅ Graph-based navigation
+
+Status:
+
+```text
+Completed
+```
+
+---
+
+## 🚧 Phase 5C – Large Neighborhood Manhattan
+
+Goal:
+
+Scale the graph size before training on full Manhattan.
+
+Target Size:
+
+```text
+50 - 500 Nodes
+```
+
+Planned Milestones:
+
+- ⬜ radius = 6
+- ⬜ radius = 8
+- ⬜ radius = 10
+- ⬜ Large Neighborhood Training
+- ⬜ Success Rate Analysis
+- ⬜ Route Efficiency Analysis
+
+Success Criteria:
+
+```text
+Success Rate > 80%
+```
+
+Status:
+
+```text
+In Progress
+```
+
+---
+
+## ⬜ Phase 5D – Full Manhattan RL
+
+Goal:
+
+Train an RL agent on the complete Manhattan street network.
+
+Environment:
+
+```text
+Full Manhattan
+```
+
+Graph:
+
+```text
+Nodes : 4630
+Edges : 9915
+```
 
 Research Question:
 
@@ -123,44 +338,46 @@ Research Question:
 A*
 vs
 Q-Learning
-vs
-Deep Reinforcement Learning
-
-Evaluation Metrics:
-
-- Success Rate
-- Route Length
-- Computation Time
-- Energy Consumption (future)
 ```
 
-Expected Release:
+Planned Features:
+
+- ⬜ Full Manhattan RL Environment
+- ⬜ Large Scale Training
+- ⬜ Agent Evaluation
+- ⬜ Runtime Analysis
+- ⬜ Route Efficiency Comparison
+- ⬜ A* vs RL Benchmark
+
+Status:
 
 ```text
-v0.5.0
+Planned
 ```
 
 ---
 
-# Phase 6 – Building Data Integration
+# ⬜ Phase 6 – Building Data Integration
 
-## Goal
+Goal:
 
-Introduce realistic urban constraints.
+Introduce realistic urban obstacles.
 
-## Data Sources
+Data Sources:
 
 - OpenStreetMap
 - NYC Open Data
-- GIS datasets
+- GIS Datasets
 - Kaggle
 
-## Planned Features
+Planned Features:
 
-- Building footprints
-- No-fly zones
+- ⬜ Building Footprints
+- ⬜ No-Fly Zones
+- ⬜ Restricted Areas
+- ⬜ Urban Obstacles
 
-Expected Release:
+Target Version:
 
 ```text
 v0.6.0
@@ -168,34 +385,37 @@ v0.6.0
 
 ---
 
-# Phase 7 – 3D Drone Navigation
+# ⬜ Phase 7 – 3D Drone Navigation
 
-## State Space
+Goal:
+
+Extend navigation from 2D streets to 3D urban airspace.
+
+State Space:
 
 ```python
-(x, y, z)
+(node, altitude)
 ```
 
-## Actions
+Actions:
 
 ```text
-NORTH
-SOUTH
-EAST
-WEST
+LEFT
+RIGHT
+FORWARD
 UP
 DOWN
 ```
 
-## Planned Features
+Planned Features:
 
-- Altitude control
-- Building avoidance
-- Energy-aware routing
-- Wind simulation
-- Building heights
+- ⬜ Building Heights
+- ⬜ Altitude Control
+- ⬜ Building Avoidance
+- ⬜ Energy-aware Routing
+- ⬜ Wind Simulation
 
-Expected Release:
+Target Version:
 
 ```text
 v0.7.0
@@ -203,26 +423,26 @@ v0.7.0
 
 ---
 
-# Phase 8 – Deep Reinforcement Learning
+# ⬜ Phase 8 – Deep Reinforcement Learning
 
-## Goal
+Goal:
 
-Scale the navigation environment beyond the limits of tabular Q-Learning.
+Scale beyond the limits of tabular Q-Learning.
 
-## Candidates
+Candidates:
 
-- DQN
-- Double DQN
-- PPO
-- A2C
+- ⬜ DQN
+- ⬜ Double DQN
+- ⬜ PPO
+- ⬜ A2C
 
-## Planned Features
+Planned Features:
 
-- Neural value approximation
-- Large state spaces
-- Real-world scalability
+- ⬜ Neural Value Approximation
+- ⬜ Large State Spaces
+- ⬜ Real-world Scalability
 
-Expected Release:
+Target Version:
 
 ```text
 v0.8.0
@@ -230,22 +450,23 @@ v0.8.0
 
 ---
 
-# Phase 9 – Manhattan Drone Navigator
+# ⬜ Phase 9 – Manhattan Drone Navigator
 
-## Final Goal
+Final Goal:
 
 Create a realistic urban drone navigation simulator.
 
 Features:
 
-- Real Manhattan street network
-- Building heights
-- 3D navigation
-- Deep Reinforcement Learning
-- Obstacle avoidance
-- Energy optimization
+- ⬜ Real Manhattan Street Network
+- ⬜ Building Heights
+- ⬜ 3D Navigation
+- ⬜ Deep Reinforcement Learning
+- ⬜ Obstacle Avoidance
+- ⬜ Energy Optimization
+- ⬜ Urban Air Mobility Simulation
 
-Expected Release:
+Target Version:
 
 ```text
 v1.0.0
@@ -262,4 +483,22 @@ Potential future extensions:
 - Dynamic weather
 - Air traffic management
 - Delivery optimization
-- Reinforcement Learning benchmarks
+- RL benchmarks
+- Graph Neural Networks (GNNs)
+- Real-world GIS integration
+
+---
+
+# Current Project Status
+
+```text
+✅ Phase 1 – RL Fundamentals
+✅ Phase 2 – Manhattan Grid World
+✅ Phase 3 – Obstacle Navigation
+✅ Phase 4 – Analytics
+✅ Phase 5.0 – Manhattan Graph
+✅ Phase 5A – Mini Manhattan
+✅ Phase 5B – Neighborhood Manhattan
+
+🚧 Phase 5C – Large Neighborhood Manhattan
+```
