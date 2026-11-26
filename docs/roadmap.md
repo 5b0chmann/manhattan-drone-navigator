@@ -280,32 +280,79 @@ Completed
 
 ## 🚧 Phase 5C – Large Neighborhood Manhattan
 
-Goal:
+### Goal
 
-Scale the graph size before training on full Manhattan.
+Scale graph-based Reinforcement Learning beyond small neighborhood environments while maintaining successful navigation performance.
 
-Target Size:
-
-```text
-50 - 500 Nodes
-```
-
-Planned Milestones:
-
-- ⬜ radius = 6
-- ⬜ radius = 8
-- ⬜ radius = 10
-- ⬜ Large Neighborhood Training
-- ⬜ Success Rate Analysis
-- ⬜ Route Efficiency Analysis
-
-Success Criteria:
+### Environment
 
 ```text
-Success Rate > 80%
+Large Neighborhood Manhattan
 ```
 
-Status:
+### Current Results
+
+```text
+Nodes          : 127
+Shortest Route : 11 Nodes
+Success Rate   : 4.0%
+```
+
+### Key Observation
+
+The transition from small graph environments to larger Manhattan subgraphs revealed a significant scalability challenge:
+
+```text
+Mini Manhattan
+Nodes: 9
+Success Rate: 95.8%
+
+Neighborhood Manhattan
+Nodes: 24
+Success Rate: 97.9%
+
+Large Neighborhood Manhattan
+Nodes: 127
+Success Rate: 4.0%
+```
+
+### Research Question
+
+```text
+At which graph size does
+tabular Q-Learning stop scaling
+effectively?
+```
+
+### Planned Tasks
+
+- ⬜ Analyze failure cases
+- ⬜ Route efficiency evaluation
+- ⬜ Q-Table growth analysis
+- ⬜ Hyperparameter tuning
+- ⬜ Reward function optimization
+- ⬜ Curriculum learning experiments
+- ⬜ Agent benchmarking
+
+### Evaluation Metrics
+
+```text
+Success Rate
+Route Length
+Training Time
+Q-Table Size
+Goal Completion Rate
+```
+
+### Expected Outcome
+
+```text
+Identify the scaling limits
+of tabular Q-Learning before
+transitioning to Deep RL methods.
+```
+
+### Status
 
 ```text
 In Progress

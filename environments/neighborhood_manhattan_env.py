@@ -7,7 +7,7 @@ class NeighborhoodManhattanEnv:
 
     def __init__(
             self,
-            radius=4
+            radius=10
     ):
 
         graph_path = (
@@ -142,7 +142,7 @@ class NeighborhoodManhattanEnv:
 if __name__ == "__main__":
 
     env = NeighborhoodManhattanEnv(
-        radius=4
+        radius=10
     )
 
     env.info()
