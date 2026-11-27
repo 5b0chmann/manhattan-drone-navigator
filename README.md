@@ -165,14 +165,26 @@ Result:
 
 ---
 
-## ✅ Phase 5 – Graph Reinforcement Learning
+# ✅ Phase 5 – Graph Reinforcement Learning
 
-Current Focus:
-🚧 Phase 5D – Full Manhattan RL
+Current Status:
 
-### Goal
+```text
+✅ Phase 5.0 – Manhattan Street Graph
+✅ Phase 5A – Mini Manhattan
+✅ Phase 5B – Neighborhood Manhattan
+✅ Phase 5C – Large Neighborhood Manhattan
+✅ Phase 5D.1 – Full Manhattan Environment
+✅ Phase 5D.2 – Random Benchmark
+✅ Phase 5D.3 – Full Manhattan Q-Learning
 
-Replace the artificial Grid World with a real-world Manhattan street network.
+🚧 Current Focus:
+Phase 5D.4 – Policy Evaluation
+```
+
+## Goal
+
+Replace the artificial Grid World with a real-world Manhattan street network and evaluate how Reinforcement Learning scales from small graph environments to a complete urban road network.
 
 Technologies:
 
@@ -184,7 +196,7 @@ Technologies:
 
 ---
 
-### ✅ Phase 5.0 – Manhattan Street Graph
+## ✅ Phase 5.0 – Manhattan Street Graph
 
 Implemented:
 
@@ -216,11 +228,11 @@ Goal Reached : True
 
 Result:
 
-✅ Real-world Manhattan route successfully generated and visualized. 【1-6fa378】【2-b0d827】【3-cef987】
+✅ Real-world Manhattan route successfully generated and visualized. 【1-5cc63b】【2-8eba5a】【3-d754b7】
 
 ---
 
-### ✅ Phase 5A – Mini Manhattan
+## ✅ Phase 5A – Mini Manhattan
 
 Goal:
 
@@ -254,7 +266,7 @@ Result:
 
 ---
 
-### ✅ Phase 5B – Neighborhood Manhattan
+## ✅ Phase 5B – Neighborhood Manhattan
 
 Goal:
 
@@ -293,7 +305,7 @@ Result:
 
 ---
 
-### ✅ Phase 5C – Large Neighborhood Manhattan
+## ✅ Phase 5C – Large Neighborhood Manhattan
 
 Goal:
 
@@ -358,35 +370,191 @@ This confirmed that the primary limitation was not graph size, reward shaping, o
 
 ---
 
-### ⬜ Phase 5D – Full Manhattan RL
+## ✅ Phase 5D.1 – Full Manhattan Environment
 
-Goal:
-
-Train directly on the full Manhattan street network.
-
-Graph:
+Environment Validation:
 
 ```text
 Nodes : 4630
 Edges : 9915
 ```
 
+Implemented:
+
+- ✅ Full Manhattan Environment
+- ✅ Graph Connectivity Testing
+- ✅ Environment Validation Suite
+- ✅ Random Walk Testing
+- ✅ A* Route Validation
+
+Tests Passed:
+
+```text
+✅ Graph Loaded
+✅ Reset
+✅ Actions
+✅ Step Function
+✅ Connectivity
+✅ A* Routing
+✅ Episode Generation
+✅ Environment Stability
+```
+
+Result:
+
+✅ Full Manhattan RL environment successfully validated.
+
+---
+
+## ✅ Phase 5D.2 – Full Manhattan Random Benchmark
+
+Goal:
+
+Measure the baseline performance of a completely random agent on the full Manhattan graph.
+
+Results:
+
+```text
+Episodes      : 100
+Successes     : 0
+Success Rate  : 0.00%
+Average Reward: 42.00
+```
+
+Conclusion:
+
+```text
+Random exploration is
+insufficient for solving
+the full Manhattan
+navigation problem.
+```
+
+Result:
+
+✅ Official baseline established.
+
+---
+
+## ✅ Phase 5D.3 – Full Manhattan Q-Learning
+
+### Environment
+
+```text
+Nodes : 4630
+Edges : 9915
+```
+
+### A* Baseline
+
+```text
+Route Length : 134 Nodes
+Goal Reached : True
+```
+
+### Random Agent Benchmark
+
+```text
+Episodes      : 100
+Successes     : 0
+Success Rate  : 0.00%
+```
+
+### Key Result
+
+```text
+Random Agent     : 0.00%
+Q-Learning Agent : 95.00%
+```
+
+### Training Configuration
+
+```text
+Episodes  : 5000
+Max Steps : 500
+```
+
+### Final Results
+
+```text
+Episodes         : 5000
+Successes        : 4750
+Success Rate     : 95.00%
+Q-Table Entries  : 4683
+```
+
+### Learning Progress
+
+```text
+Episode 500   : 67.80%
+Episode 1000  : 81.80%
+Episode 1500  : 86.80%
+Episode 2000  : 89.55%
+Episode 2500  : 91.00%
+Episode 3000  : 92.00%
+Episode 3500  : 93.11%
+Episode 4000  : 93.90%
+Episode 4500  : 94.51%
+Episode 5000  : 95.00%
+```
+
+### Conclusion
+
+```text
+Q-Learning successfully scaled
+from small Manhattan graphs
+to the complete Manhattan
+street network.
+
+Performance improved from
+
+0.00% success rate
+(Random Agent)
+
+to
+
+95.00% success rate
+(Q-Learning).
+```
+
+Result:
+
+✅ Full Manhattan Q-Learning completed.
+
+✅ Success Rate reached 95.00%.
+
+✅ Q-Learning successfully scaled to the complete Manhattan street network.
+
+✅ Phase 5D.3 completed.
+
+---
+
+## 🚧 Phase 5D.4 – Policy Evaluation
+
+Current Goal:
+
+Evaluate route quality and compare learned policies against the A* optimum.
+
+Planned Metrics:
+
+```text
+Average Success Steps
+Best Success Steps
+Worst Success Steps
+
+A* vs Q-Learning
+
+Route Efficiency
+Policy Quality
+```
+
 Research Question:
 
 ```text
-A*
-vs
-Q-Learning
+How close can
+Q-Learning get to
+the optimal A* route?
 ```
-
-Planned Features:
-
-- ⬜ Full Manhattan Environment
-- ⬜ Full Manhattan Training
-- ⬜ Agent Evaluation
-- ⬜ Runtime Benchmarking
-- ⬜ Route Efficiency Analysis
-- ⬜ A* vs RL Comparison
 
 ---
 
@@ -508,7 +676,7 @@ v1.0.0
 Current Version:
 
 ```text
-v0.5.2
+v0.5.3
 ```
 
 Completed:
@@ -522,12 +690,15 @@ Completed:
 ✅ Phase 5A – Mini Manhattan
 ✅ Phase 5B – Neighborhood Manhattan
 ✅ Phase 5C – Large Neighborhood Manhattan
+✅ Phase 5D.1 – Full Manhattan Environment
+✅ Phase 5D.2 – Random Benchmark
+✅ Phase 5D.3 – Full Manhattan Q-Learning
 ```
 
 Current Focus:
 
 ```text
-🚧 Phase 5D – Full Manhattan RL
+🚧 Phase 5D.4 – Policy Evaluation
 ```
 
 ---
@@ -551,6 +722,9 @@ manhattan-drone-navigator/
 ├── experiments/
 │   ├── analytics.py
 │   ├── train_mini_manhattan.py
+|   ├── test_full_manhattan_env.py
+|   ├── random_agent_full_manhattan.py
+|   ├── train_full_manhattan.py
 │   └── train_neighborhood_manhattan.py
 |   └── random_agent_benchmark.py
 |   └── evaluation.py

@@ -83,11 +83,11 @@ class ManhattanGraphEnv:
 
             reward = 100
 
-            print(
-                f"GOAL REACHED: {self.goal_node}"
-            )
+            #print(
+            #    f"GOAL REACHED: {self.goal_node}"
+            #)
 
-        if new_distance < old_distance:
+        elif new_distance < old_distance:
 
             reward = 1
 
