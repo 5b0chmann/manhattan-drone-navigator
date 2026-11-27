@@ -42,9 +42,19 @@ class NeighborhoodManhattanEnv:
             self.nodes[-1]
         )
 
+        self.route_nodes = set(
+            self.shortest_route()
+        )
+
         self.current_node = (
             self.start_node
         )
+
+        self.otimal_route = (
+            self.shortest_route()
+        )
+
+        self.visited_nodes = set()
     #------------------------------------
     # Environment
     #------------------------------------
@@ -55,7 +65,11 @@ class NeighborhoodManhattanEnv:
             self.start_node
         )
 
-        return self.current_node
+        self.visited_nodes = {
+            self.start_node
+        }
+
+        return self.get_state()
 
     def get_actions(self):
 
@@ -63,6 +77,25 @@ class NeighborhoodManhattanEnv:
             self.graph.neighbors(
                 self.current_node
             )
+        )
+
+    def get_state(self):
+
+        try:
+
+            distance = nx.shortest_path_length(
+                self.graph,
+                source=self.current_node,
+                target=self.goal_node
+            )
+
+        except nx.NetworkXNoPath:
+
+            distance = 9999
+
+        return(
+            self.current_node,
+            distance
         )
 
     def step(
@@ -86,6 +119,24 @@ class NeighborhoodManhattanEnv:
             next_node
         )
 
+        guided_reward = False
+
+        if next_node in self.otimal_route:
+
+            guided_reward = True
+
+        loop_penalty = False
+
+        if next_node in self.visited_nodes:
+
+            loop_penalty = True
+
+        else:
+
+            self.visited_nodes.add(
+                next_node
+            )
+
         done = (
             self.current_node
             == self.goal_node
@@ -93,12 +144,20 @@ class NeighborhoodManhattanEnv:
 
         reward = -1
 
+        if loop_penalty:
+
+            reward = -5
+
+        if next_node in self.route_nodes:
+
+            reward += 5
+
         if done:
 
             reward = 100
 
         return ( 
-            self.current_node,
+            self.get_state(),
             reward,
             done
         )
@@ -116,6 +175,21 @@ class NeighborhoodManhattanEnv:
         )
 
     def info(self):
+
+        route = self.shortest_route()
+
+        print(
+            f"Shortest Route: "
+            f"{len(route)} nodes"
+        )
+
+        print(
+            "\nRoute:\n"
+        )
+
+        for node in route:
+
+            print(node)
 
         print(
             "\n=== NEIGHBORHOOD ===\n"

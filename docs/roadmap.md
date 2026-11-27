@@ -300,7 +300,7 @@ Success Rate   : 4.0%
 
 ### Key Observation
 
-The transition from small graph environments to larger Manhattan subgraphs revealed a significant scalability challenge:
+The transition from small graph environments to larger Manhattan subgraphs revealed a significant learning challenge.
 
 ```text
 Mini Manhattan
@@ -313,7 +313,28 @@ Success Rate: 97.9%
 
 Large Neighborhood Manhattan
 Nodes: 127
-Success Rate: 4.0%
+Success Rate: 3.4%
+
+Random Agent
+Nodes: 127
+Success Rate: 2.0%
+```
+
+### Initial Findings
+
+- Q-Learning significantly outperforms random exploration on small graph environments.
+- Performance remains strong on Neighborhood Manhattan.
+- Scaling from 24 nodes to 127 nodes results in a dramatic reduction in success rate.
+- The Q-Learning agent still performs slightly better than a random agent, indicating that some useful navigation behavior is learned.
+- Additional investigation is required to determine whether the limitation is caused by state-space growth, reward design, local policy loops, or the limits of tabular Q-Learning.
+
+### Research Question
+
+```text
+How well does tabular Q-Learning
+scale to larger real-world street
+graphs before Deep Reinforcement
+Learning becomes necessary?
 ```
 
 ### Research Question

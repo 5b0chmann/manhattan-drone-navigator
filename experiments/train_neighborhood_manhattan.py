@@ -42,6 +42,12 @@ def train():
 
         state = env.reset()
 
+        if episode == 0:
+
+            print(
+                f"Initial State: {state}"
+            )
+
         total_reward = 0
 
         done = False

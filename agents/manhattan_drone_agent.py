@@ -16,7 +16,7 @@ class DroneNavigatorAgent:
             self,
             learning_rate=0.1,
             discount_factor=0.95,
-            epsilon=0.1
+            epsilon=0.05
     ):
 
         self.alpha = learning_rate
@@ -125,23 +125,24 @@ class DroneNavigatorAgent:
 
             max_future_q = 0.0
 
-            updated_q = (
+        updated_q = (
+        
 
-                current_q
+            current_q
 
-                +
+            +
 
-                self.alpha 
-                * (
-                    reward 
-                    + self.gamma * max_future_q
-                    - current_q
-                )
+            self.alpha 
+            * (
+                reward 
+                + self.gamma * max_future_q
+                - current_q
             )
+        )
 
-            self.q_table[
-                (state, action)
-            ] = updated_q
+        self.q_table[
+            (state, action)
+         ] = updated_q
 
     #--------------------------------------
     # INFO
