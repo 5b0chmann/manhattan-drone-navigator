@@ -165,7 +165,10 @@ Result:
 
 ---
 
-## 🚧 Phase 5 – Graph Reinforcement Learning
+## ✅ Phase 5 – Graph Reinforcement Learning
+
+Current Focus:
+🚧 Phase 5D – Full Manhattan RL
 
 ### Goal
 
@@ -290,103 +293,54 @@ Result:
 
 ---
 
-### 🚧 Phase 5C – Large Neighborhood Manhattan
+### ✅ Phase 5C – Large Neighborhood Manhattan
 
 Goal:
 
-Increase graph complexity before moving to Full Manhattan.
+Scale Reinforcement Learning to significantly larger Manhattan subgraphs.
 
-Target Size:
+Environment:
 
 ```text
-50 - 500 Nodes
+Large Neighborhood Manhattan
+```
+
+Training Results:
+
+```text
+Nodes          : 127
+Shortest Route : 11 Nodes
+Success Rate   : 97.3%
+```
+
+Agent Statistics:
+
+```text
+Q-Table Entries : 257
 ```
 
 Implemented:
 
-- ✅ Radius 10 graph generation
+- ✅ Radius 10 Graph Generation
 - ✅ Large Neighborhood Environment
 - ✅ Large Neighborhood Training
-- ✅ Random-Agent Benchmark
+- ✅ Random Agent Benchmark
 - ✅ Policy Evaluation
 - ✅ Route Inspection
+- ✅ Root Cause Analysis
+- ✅ Bug Fix Validation
 
-Success Criteria:
+Result:
 
-```text
-Success Rate > 80%
-```
+✅ Agent successfully scales to 127-node Manhattan subgraphs.
 
-### 🔬 Learning Investigation
+✅ Success Rate exceeds 97%.
 
-During Phase 5C, a major performance degradation was observed while scaling from small graph environments to larger Manhattan subgraphs.
+✅ Large Neighborhood Manhattan completed.
 
-Initial results suggested that tabular Q-Learning might not scale effectively:
+### Bug Fix Validation
 
-```text
-Mini Manhattan
-Nodes: 9
-Success Rate: 95.8%
-
-Neighborhood Manhattan
-Nodes: 24
-Success Rate: 97.9%
-
-Large Neighborhood Manhattan
-Nodes: 127
-Success Rate: 3.1%
-```
-
-Several hypotheses were investigated:
-
-- Reward shaping
-- Loop penalties
-- Goal-aware state representation
-- Random-agent benchmarking
-- Route analysis based on A* paths
-
-A random baseline was implemented:
-
-```text
-Random Agent
-Success Rate: 2.0%
-```
-
-The investigation eventually revealed a critical implementation bug in the Q-learning update function.
-
-### Root Cause
-
-The Q-value update was executed only inside the wrong conditional branch:
-
-```python
-if next_actions:
-    max_future_q = ...
-
-else:
-    updated_q = ...
-    self.q_table[(state, action)] = updated_q
-```
-
-As a result, Q-values were often not updated correctly during training.
-
-### Fix
-
-The Q-value update was moved outside the conditional block:
-
-```python
-if next_actions:
-    max_future_q = ...
-else:
-    max_future_q = 0.0
-
-updated_q = ...
-
-self.q_table[(state, action)] = updated_q
-```
-
-### Result
-
-After correcting the implementation:
+After fixing the Q-learning update implementation:
 
 ```text
 Large Neighborhood Manhattan
@@ -400,12 +354,7 @@ Success Rate:
 97.3%
 ```
 
-### Lessons Learned
-
-- Poor RL performance can originate from implementation bugs rather than algorithmic limitations.
-- Benchmarking against random agents and analyzing learned policies can be invaluable debugging tools.
-- Systematic experimentation is often more effective than immediately increasing model complexity.
-- Careful verification of the learning update rule is essential when investigating scaling behavior.
+This confirmed that the primary limitation was not graph size, reward shaping, or state representation, but an implementation defect in the Q-value update rule.
 
 ---
 
@@ -559,7 +508,7 @@ v1.0.0
 Current Version:
 
 ```text
-v0.5.1
+v0.5.2
 ```
 
 Completed:
@@ -572,12 +521,13 @@ Completed:
 ✅ Phase 5.0 – Manhattan Street Graph
 ✅ Phase 5A – Mini Manhattan
 ✅ Phase 5B – Neighborhood Manhattan
+✅ Phase 5C – Large Neighborhood Manhattan
 ```
 
 Current Focus:
 
 ```text
-🚧 Phase 5C – Large Neighborhood Manhattan
+🚧 Phase 5D – Full Manhattan RL
 ```
 
 ---
@@ -602,6 +552,8 @@ manhattan-drone-navigator/
 │   ├── analytics.py
 │   ├── train_mini_manhattan.py
 │   └── train_neighborhood_manhattan.py
+|   └── random_agent_benchmark.py
+|   └── evaluation.py
 │
 ├── maps/
 │   ├── manhattan.graphml
